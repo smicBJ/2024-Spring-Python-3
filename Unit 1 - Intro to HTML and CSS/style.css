@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+}
+
+.center {
+  text-align: center;
+}
+
+.primary-title {
+  font-size: 4rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 400;
+  /* background-color: aquamarine; */
+  margin: 0;
+  /* margin: 30px 50px 60px 80px; */
+  /* padding: 40px 0; */
+}
+
+.section-1 {
+  margin: 40px 0;
+  padding: 4.5rem 20%;
+  background-color: aqua;
+}

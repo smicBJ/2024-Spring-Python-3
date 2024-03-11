@@ -1,0 +1,23 @@
+h1 {
+  color: blue;
+}
+
+h2 {
+  color: #f0f;
+}
+
+#primary-title {
+  color: #FF0000;
+}
+
+.title {
+  color: #727272 !important;
+}
+
+h2 {
+  color: greenyellow;
+}
+
+.centered {
+  text-align: center;
+}
