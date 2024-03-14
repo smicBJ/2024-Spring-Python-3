@@ -1,0 +1,21 @@
+.mt-5 {
+    margin-top: 5rem;
+}
+
+.container {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.title {
+    color: gray;
+    cursor: pointer;
+}
+
+.title:hover {
+    color: lightslategray;
+}
+
+.hidden {
+    display: none;
+}

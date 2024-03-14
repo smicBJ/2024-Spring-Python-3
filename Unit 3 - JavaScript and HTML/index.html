@@ -4,16 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unit 3</title>
-    <style>
-        .mt-5 {
-            margin-top: 30px;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/app.css">
 </head>
 <body>
-    <div class="mt-5" style="margin-left: 15%; margin-right: 15%;">
+    <div class="mt-5 container">
         <h1 id="title">Welcome to JavaScript</h1>
         <button onclick="changeH1()">Change the Title</button>
+    </div>
+
+    <div class="mt-5 container">
+        <h2>Get the user's name</h2>
+        <input type="text" id="name" onblur="greeting()">
+        <!-- <button onclick="greeting()">Greet Person</button> -->
+    </div>
+
+    <div class="mt-5 container">
+        <h2 id="click-title" class="title" onclick="editTitle()">Your Name</h2>
+        <input class="hidden" type="text" id="click-input" onblur="titleEdited()">
     </div>
 
     <script src="assets/js/app.js"></script>

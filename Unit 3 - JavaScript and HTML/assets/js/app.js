@@ -16,3 +16,35 @@ function changeH1() {
 // let query = prompt("Change it to what?")
 
 // changeH1(query)
+
+myElement.onclick = () => {
+    myElement.innerText = "Ouch! Don't click me, you idiot!"
+}
+
+let myInput = document.getElementById("name")
+let mySecondTitle = document.querySelector("h2")
+console.log(myInput)
+
+let greeting = () => {
+    console.log(myInput.value)
+    mySecondTitle.innerText = `Hello, ${myInput.value}!`
+}
+
+
+let myClickTitle = document.getElementById("click-title")
+let myClickInput = document.getElementById("click-input")
+
+console.log(myClickInput)
+console.log(myClickTitle)
+
+let editTitle = () => {
+    myClickInput.value = myClickTitle.innerText
+    myClickTitle.classList.toggle("hidden")
+    myClickInput.classList.toggle("hidden")
+}
+
+let titleEdited = () => {
+    myClickTitle.innerText = myClickInput.value
+    myClickInput.classList.toggle("hidden")
+    myClickTitle.classList.toggle("hidden")
+}
