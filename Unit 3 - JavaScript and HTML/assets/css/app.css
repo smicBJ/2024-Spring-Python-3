@@ -7,6 +7,19 @@
     margin-right: 15%;
 }
 
+@media (max-width: 500px) {
+    .container {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+
+@media (min-width: 700px) {
+    .c-on-l {
+        text-align: center;
+    }
+}
+
 .title {
     color: gray;
     cursor: pointer;
