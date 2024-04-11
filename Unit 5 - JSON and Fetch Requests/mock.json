@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Henry",
+    "grade": 12,
+    "weight": "70kg"
+  },
+  {
+    "name": "Huson",
+    "grade": 11,
+    "weight": "74kg"
+  },
+  {
+    "name": "Richard",
+    "grade": 11,
+    "weight": "55kg"
+  },
+  {
+    "name": "Jack",
+    "grade": 10,
+    "weight": "80kg"
+  }
+]
