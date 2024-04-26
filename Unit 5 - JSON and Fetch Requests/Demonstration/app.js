@@ -1,5 +1,5 @@
 
-const url = "http://localhost:8000/static/mock/blogs.json"
+const url = "http://10.6.20.136:8000/static/mock/blogs.json"
 
 const getQueryParamaters = () => {
   const url = window.location
