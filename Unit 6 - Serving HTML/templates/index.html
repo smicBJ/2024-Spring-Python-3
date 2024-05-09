@@ -24,10 +24,9 @@
     </nav>
 
     <!-- Hero Section -->
+    {% if student %}
     <h1>{{ student }}</h1>
-
-    {% if student == "Richard" %}
-    <p>This is Richard</p>
+    <p>This is the Student</p>
     {% endif %}
 
 

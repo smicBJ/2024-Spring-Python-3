@@ -4,22 +4,16 @@ from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 import uvicorn
 
-app = FastAPI()
-templates = Jinja2Templates(directory="templates")
+from dependencies.database import connect_to_mongodb
 
-DATA = [
-    "Hudson",
-    "Nolan",
-    "Richard"
-]
+app = FastAPI(lifespan=connect_to_mongodb)
+templates = Jinja2Templates(directory="templates")
 
 
 @app.get("/", response_class=HTMLResponse)
 async def get_index(request: Request):
-    student = DATA[1]
     return templates.TemplateResponse("index.html", {
-        "request": request,
-        "student": student
+        "request": request
     })
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
