@@ -10,6 +10,7 @@ class Blogs(Document):
     body: str
     author: str
     created_on: datetime
+    image_link: Optional[str] = None
 
     class Settings:
         name = "blogs"

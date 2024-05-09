@@ -12,7 +12,7 @@ async def connect_to_mongodb(app: FastAPI):
     await init_beanie(database=client["SMIC"], document_models=[
         blog.Blogs
     ])
-    print("INFO:   Connected to MongoDB")
+    print("INFO:     Connected to MongoDB")
     yield
     client.close()
-    print("INFO:   Disconnected from MongoDB")
+    print("INFO:     Disconnected from MongoDB")
