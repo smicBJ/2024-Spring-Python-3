@@ -1,6 +1,25 @@
 {% set current_page = "blog_detail" %}
 {% extends "layouts/app.html" %}
-{% block title %}All Blogs Website | Info{% endblock %}
+{% block title %}All Blogs Website | {{ blog.title }}{% endblock %}
 {% block content %}
-<h1>{{ blog.title }}</h1>
+<div class="container my-5 text-center">
+  <div class="img-parent">
+    {% if blog.image_link %}
+    <img src="{{ blog.image_link }}" class="img-thumbnail" alt="Image Depicting Blog Title">
+    {% else %}
+    <img src="https://th.bing.com/th/id/OIP.OdV08mOw71O9qhdpUqdz_QHaE8?w=257&h=180&c=7&r=0&o=5&pid=1.7" class="img-thumbnail" alt="Default Blog Image">
+    {% endif %}
+  </div>
+  <h1 class="mt-2">{{ blog.title }}</h1>
+  <p class="lead">
+    <em>{{ blog.created_on }}</em> by
+    <strong>{{ blog.author }}</strong>
+  </p>
+</div>
+
+<div class="bg-dark text-white">
+  <div class="container py-5">
+    <p class="lead">{{ blog.body }}</p>
+  </div>
+</div>
 {% endblock %}

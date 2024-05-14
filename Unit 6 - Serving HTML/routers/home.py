@@ -17,6 +17,13 @@ async def get_index(request: Request):
     })
 
 
+@router.get("/blogs/add", response_class=HTMLResponse)
+async def get_blog_add(request: Request):
+    return templates.TemplateResponse("blog_add.html", {
+        "request": request
+    })
+
+
 @router.get("/blogs/{blog_id}", response_class=HTMLResponse)
 async def get_blog_by_id(request: Request, blog_id: str):
     blog = await Blogs.get(blog_id)
