@@ -2,7 +2,7 @@ from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
-from models.blog import Blogs
+from models.blog import Blogs, BlogForm
 
 router = APIRouter(prefix="", tags=["Home"])
 templates = Jinja2Templates(directory="templates")
@@ -19,6 +19,16 @@ async def get_index(request: Request):
 
 @router.get("/blogs/add", response_class=HTMLResponse)
 async def get_blog_add(request: Request):
+    return templates.TemplateResponse("blog_add.html", {
+        "request": request
+    })
+
+
+@router.post("/blogs/add", response_class=HTMLResponse)
+async def create_blog(request: Request):
+    form = BlogForm(request=request)
+    await form.create_form_data()
+
     return templates.TemplateResponse("blog_add.html", {
         "request": request
     })

@@ -2,5 +2,51 @@
 {% extends "layouts/app.html" %}
 {% block title %}All Blogs Website | Create New Blog{% endblock %}
 {% block content %}
-<h1>Create New Blog</h1>
+<div class="container my-5">
+  <h1 class="text-center">Create New Blog</h1>
+  <div class="row justify-content-md-center">
+    <div class="col-sm-12 col-md-10 col-lg-8">
+      <form action="/blogs/add" method="post">
+        <div class="row">
+          <div class="col-sm-12 col-md-6 mb-3">
+            <label for="title" class="form-label">
+              Title
+              <span class="text-danger">*</span>
+            </label>
+            <input type="text" class="form-control" id="title" required>
+          </div>
+          <div class="col-sm-12 col-md-6 mb-3">
+            <label for="author" class="form-label">
+              Author
+              <span class="text-danger">*</span>
+            </label>
+            <input type="text" class="form-control" id="author" required>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">
+            Description
+            <span class="text-danger">*</span>
+          </label>
+          <input type="text" class="form-control" id="description" required>
+        </div>
+        <div class="mb-3">
+          <label for="body" class="form-label">
+            Body
+            <span class="text-danger">*</span>
+          </label>
+          <textarea class="form-control" id="body" rows="5" required></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="link" class="form-label">Image Link</label>
+          <input type="text" class="form-control" id="link">
+        </div>
+        <div class="text-end mt-5">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}
