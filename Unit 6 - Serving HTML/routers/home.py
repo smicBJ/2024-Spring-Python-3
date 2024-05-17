@@ -29,9 +29,22 @@ async def create_blog(request: Request):
     form = BlogForm(request=request)
     await form.create_form_data()
 
-    return templates.TemplateResponse("blog_add.html", {
-        "request": request
-    })
+    print(form.form_data)
+    new_blog = Blogs(
+        title=form.form_data["title"],
+        author=form.form_data["author"],
+        description=form.form_data["description"],
+        body=form.form_data["body"],
+        image_link=form.form_data["image_link"]
+    )
+    try:
+        await new_blog.insert()
+        return templates.TemplateResponse("blog_add.html", {
+            "request": request,
+            "msg": "Success"
+        })
+    except Exception as err:
+        print(err)
 
 
 @router.get("/blogs/{blog_id}", response_class=HTMLResponse)

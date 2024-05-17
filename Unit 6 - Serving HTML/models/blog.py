@@ -10,7 +10,7 @@ class Blogs(Document):
     description: str
     body: str
     author: str
-    created_on: datetime
+    created_on: datetime = datetime.now(tz=timezone.utc)
     image_link: Optional[str] = None
 
     class Settings:
@@ -25,4 +25,8 @@ class BlogForm:
 
     async def create_form_data(self):
         form = await self.request.form()
-        print(form)
+        form_dictionary = {}
+        for key, value in form.items():
+            print(f"Key: {key}, Value: {value} ")
+            form_dictionary[key] = value
+        self.form_data = form_dictionary
