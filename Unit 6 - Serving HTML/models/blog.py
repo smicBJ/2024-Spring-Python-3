@@ -21,12 +21,9 @@ class BlogForm:
 
     def __init__(self, request: Request):
         self.request: Request = request
-        self.form_data = None
+        self.form_data = {}
 
     async def create_form_data(self):
         form = await self.request.form()
-        form_dictionary = {}
         for key, value in form.items():
-            print(f"Key: {key}, Value: {value} ")
-            form_dictionary[key] = value
-        self.form_data = form_dictionary
+            self.form_data[key] = value
