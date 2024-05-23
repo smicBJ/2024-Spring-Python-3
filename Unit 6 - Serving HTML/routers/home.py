@@ -71,6 +71,34 @@ async def get_update_blog_page(request: Request, blog_id: str):
     })
 
 
+@router.post("/blogs/update/{blog_id}", response_class=HTMLResponse)
+async def update_blog(request: Request, blog_id: str):
+    blog = await Blogs.get(blog_id)
+    try:
+        form = BlogForm(request=request)
+        await form.create_form_data()
+
+        blog.title = form.form_data["title"]
+        blog.author = form.form_data["author"]
+        blog.description = form.form_data["description"]
+        blog.body = form.form_data["body"]
+        blog.image_link = form.form_data["image_link"]
+
+        await blog.save()
+
+        return templates.TemplateResponse("blog_detail.html", {
+            "request": request,
+            "blog": blog
+        })
+
+    except Exception as err:
+        print(err)
+        return templates.TemplateResponse("blog_update.html", {
+            "request": request,
+            "blog": blog
+        })
+
+
 @router.get("/about", response_class=HTMLResponse)
 async def get_about(request: Request):
     return templates.TemplateResponse("about.html", {

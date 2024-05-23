@@ -24,6 +24,33 @@
 </div>
 
 <div class="container my-3 text-center">
-  <a href="/blogs/update/{{ blog.id }}" class="btn btn-outline-primary">Update Blog</a>
+  <a href="/blogs/update/{{ blog.id }}" class="btn btn-outline-primary">
+    Update Blog
+  </a>
+  <button
+    type="button"
+    class="btn btn-outline-danger"
+    data-bs-toggle="modal"
+    data-bs-target="#deleteModal">
+    Delete the Blog
+  </button>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modalLabel">Delete Blog</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete the blog with the title <strong>{{ blog.title }}</strong>? This process can not be reveresed.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger">Delete Blog</button>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
