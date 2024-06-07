@@ -12,14 +12,14 @@
   </div>
   <h1 class="mt-2">{{ blog.title }}</h1>
   <p class="lead">
-    <em>{{ blog.created_on }}</em> by
+    <em id="created-on">{{ blog.created_on }}</em> by
     <strong>{{ blog.author }}</strong>
   </p>
 </div>
 
 <div class="bg-dark text-white">
   <div class="container py-5">
-    <p class="lead">{{ blog.body }}</p>
+    <div class="lead">{{ blog.body | safe }}</div>
   </div>
 </div>
 
@@ -55,4 +55,19 @@
     </div>
   </div>
 </div>
+
+<script>
+  const getLocalTime = () => {
+    const timeEle = document.getElementById("created-on")
+    const utcTimeStamp = new Date(timeEle.textContent)
+
+    const options = {year: "numeric", month: "long", day: "numeric"}
+
+    const localTimeStamp = utcTimeStamp.toLocaleString("en-US", options)
+
+    timeEle.textContent = localTimeStamp
+  }
+
+  getLocalTime()
+</script>
 {% endblock %}
